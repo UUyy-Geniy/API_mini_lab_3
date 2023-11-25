@@ -1,0 +1,18 @@
+{% extends 'crypto/base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+
+
+{% block content %}
+    <h1>Минимум и максимум стоимость валюты за сутки</h1>
+    {% if res %}
+        {% for key, value in res.items %}
+            <div class="alert alert-warning mt-2">
+                <p>{{ key }}: Минимум = {{ value.1 }}; Максимум = {{value.0}}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>У нас нет записей!</p>
+    {% endif %}
+{% endblock %}

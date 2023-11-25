@@ -1,0 +1,29 @@
+{% extends 'crypto/base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>Валюты и их стоимость</h1>
+    {% if res_price %}
+        {% for key, value in res_price.items %}
+            <div class="alert alert-warning mt-2">
+                <p>{{ key }}: {{ value }}$</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>У нас нет записей!</p>
+    {% endif %}
+    <!-- {% if res %}
+        <h2>Самая дорогая криптовалюта</h2>
+        <div class="alert alert-warning mt-2">
+            <p>{{ res.0 }}: {{ res.1 }}$</p>
+        </div>
+        <h2>Самая дешевая криптовалюта</h2>
+        <div class="alert alert-warning mt-2">
+            <p>{{ res.2 }}: {{ res.3 }}$</p>
+        </div>
+    {% else %}
+        <p>Ошибка!</p>
+    {% endif %} -->
+{% endblock %}
